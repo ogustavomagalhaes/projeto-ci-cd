@@ -32,6 +32,10 @@ app.post('/usuarios', (req, res) => {
   res.status(201).json(novo);
 });
 
+if (!req.body.nome) {
+  return res.status(400).json({ erro: 'Nome é obrigatório' });
+}
+
 app.listen(3000, () => {
   console.log('Servidor rodando na porta 3000');
 });
