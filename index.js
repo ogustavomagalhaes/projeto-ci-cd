@@ -17,6 +17,10 @@ app.get('/usuarios', (req, res) => {
   res.json(usuarios);
 });
 
+app.get('/status', (req, res) => {
+  res.json({ status: 'ok' });
+});
+
 // POST
 app.post('/usuarios', (req, res) => {
   const novo = {
