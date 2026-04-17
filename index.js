@@ -4,15 +4,13 @@ const app = express();
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.send('API funcionando com Express 🚀');
+  res.send('API funcionando!');
 });
 
-// lista fake
 let usuarios = [
   { id: 1, nome: 'Gustavo' }
 ];
 
-// GET
 app.get('/usuarios', (req, res) => {
   res.json(usuarios);
 });
@@ -21,7 +19,6 @@ app.get('/status', (req, res) => {
   res.json({ status: 'ok' });
 });
 
-// POST
 app.post('/usuarios', (req, res) => {
   const novo = {
     id: usuarios.length + 1,
