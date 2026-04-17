@@ -1,4 +1,4 @@
-name: CD - Deploy Simulado
+name: CD
 
 on:
   push:
