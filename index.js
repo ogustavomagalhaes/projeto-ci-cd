@@ -17,12 +17,17 @@ app.get('/usuarios', (req, res) => {
   res.json(usuarios);
 });
 
+// STATUS
 app.get('/status', (req, res) => {
   res.json({ status: 'ok' });
 });
 
-// POST
+// POST (CORRIGIDO)
 app.post('/usuarios', (req, res) => {
+  if (!req.body.nome) {
+    return res.status(400).json({ erro: 'Nome é obrigatório' });
+  }
+
   const novo = {
     id: usuarios.length + 1,
     nome: req.body.nome
@@ -31,10 +36,6 @@ app.post('/usuarios', (req, res) => {
   usuarios.push(novo);
   res.status(201).json(novo);
 });
-
-if (!req.body.nome) {
-  return res.status(400).json({ erro: 'Nome é obrigatório' });
-}
 
 app.listen(3000, () => {
   console.log('Servidor rodando na porta 3000');
