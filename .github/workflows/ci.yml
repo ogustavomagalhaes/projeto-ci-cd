@@ -1,4 +1,4 @@
-name: CI - Node API
+name: CI
 
 on:
   push:
