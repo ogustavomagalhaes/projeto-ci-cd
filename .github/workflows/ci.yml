@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "dev", "main" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "dev", "main" ]
 
 jobs:
   build:
@@ -22,5 +22,5 @@ jobs:
       - name: Instalar dependências
         run: npm install
 
-      - name: Rodar script (teste simples)
-        run: echo "CI funcionando"
+      - name: Rodar testes unitários
+        run: npm test
